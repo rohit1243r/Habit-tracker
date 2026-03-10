@@ -225,6 +225,7 @@ body {
 
 #progressChart {
     width: 100% !important;
+    height: 300px !important;
     border: 1px solid #ddd;
     background: white;
 }

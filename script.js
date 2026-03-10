@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
     generateDayHeaders();
     generateHabitRows();
     updateDailyScores();
-    drawProgressGraph();
     
     // Add event listeners for name and month inputs
     document.getElementById('name').addEventListener('input', saveData);
     document.getElementById('month').addEventListener('input', saveData);
+    
+    // Draw graph after a delay to ensure canvas is sized
+    setTimeout(drawProgressGraph, 500);
 });
 
 // Generate day headers (1-31)
@@ -134,11 +136,13 @@ function calculateDailyScores() {
     const scores = new Array(31).fill(0);
     
     Object.keys(habitsData).forEach(habitId => {
-        habitsData[habitId].days.forEach((completed, day) => {
-            if (completed) {
-                scores[day]++;
-            }
-        });
+        if (habitId.startsWith('habit-') && habitsData[habitId].days) {
+            habitsData[habitId].days.forEach((completed, day) => {
+                if (completed) {
+                    scores[day]++;
+                }
+            });
+        }
     });
     
     return scores;
