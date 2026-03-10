@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     generateHabitRows();
     updateDailyScores();
     drawProgressGraph();
+    
+    // Add event listeners for name and month inputs
+    document.getElementById('name').addEventListener('input', saveData);
+    document.getElementById('month').addEventListener('input', saveData);
 });
 
 // Generate day headers (1-31)
@@ -302,6 +306,8 @@ function resetAllHabits() {
 
 // Save data to localStorage
 function saveData() {
+    habitsData.name = document.getElementById('name').value;
+    habitsData.month = document.getElementById('month').value;
     localStorage.setItem('habitTrackerData', JSON.stringify(habitsData));
 }
 
@@ -319,6 +325,10 @@ function loadData() {
             };
         });
     }
+    
+    // Set name and month inputs
+    document.getElementById('name').value = habitsData.name || '';
+    document.getElementById('month').value = habitsData.month || '';
 }
 
 // Handle window resize for responsive graph
