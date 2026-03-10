@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    background: white;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid #000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group label {
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 60px;
+}
+
+.input-group input {
+    border: none;
+    border-bottom: 2px solid #000;
+    padding: 5px 10px;
+    font-size: 14px;
+    width: 200px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom-color: #0066cc;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+    margin-bottom: 30px;
+    overflow-x: auto;
+}
+
+.habit-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.habit-table th,
+.habit-table td {
+    border: 1px solid #000;
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.habit-header {
+    font-weight: bold;
+    background: #f0f0f0;
+    width: 180px;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.day-header {
+    font-weight: bold;
+    font-size: 10px;
+    background: #f0f0f0;
+    width: 32px;
+    min-width: 32px;
+    padding: 8px 0 !important;
+}
+
+/* Habit Table Body */
+.habit-table tbody tr {
+    height: 35px;
+}
+
+.habit-table tbody tr:hover {
+    background: #fafafa;
+}
+
+.habit-name {
+    text-align: left;
+    font-weight: 500;
+    padding-left: 10px !important;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.habit-name:hover {
+    background: #e8f4f8;
+}
+
+.habit-name-input {
+    width: 100%;
+    border: none;
+    padding: 4px;
+    font-size: 11px;
+    outline: 1px solid #0066cc;
+    background: white;
+}
+
+.day-box {
+    width: 100%;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    padding: 0;
+    display: block;
+    min-height: 35px;
+    font-size: 0;
+}
+
+.day-box.completed {
+    background: #4CAF50;
+    color: white;
+}
+
+.day-box:hover {
+    background: #f0f8ff;
+}
+
+.day-box.completed:hover {
+    background: #45a049;
+}
+
+/* Progress Section */
+.progress-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 2px solid #000;
+    margin-bottom: 30px;
+}
+
+.progress-section h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.daily-scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 8px;
+}
+
+.score-item {
+    background: white;
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.score-item .day {
+    font-size: 10px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.score-item .count {
+    font-size: 16px;
+    color: #0066cc;
+}
+
+/* Graph Section */
+.graph-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 2px solid #000;
+    margin-bottom: 30px;
+}
+
+.graph-section h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+#progressChart {
+    width: 100% !important;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #000;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-reset {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-reset:hover {
+    background: #e63946;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-print {
+    background: #0066cc;
+    color: white;
+}
+
+.btn-print:hover {
+    background: #0052a3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .container {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .action-buttons {
+        display: none;
+    }
+
+    .input-group input {
+        border: none;
+        border-bottom: 1px solid #000;
+    }
+
+    @page {
+        size: landscape;
+        margin: 10mm;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-inputs {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .daily-scores {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+.done{
+background:black;
+}
+
